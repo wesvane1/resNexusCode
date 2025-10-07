@@ -1,13 +1,17 @@
-Thank you for viewing my currency converter program. Current functionality includes:
-1. A menu of options in which you can choose what the program does. Those options include:
-    1. Option 1: Converting USD to any given currency in the database.
-        1. There is error handling that comes along with all user input ensuring that the end product can only be reached with the correct data.
-    2. Option 2: View the exchange rate of a currency from USD.
+# Currency Converter Program
 
-Prior to running the code, ensure that the rates file has been converted from SQL to a .db file by running the line below in your terminal
+Thank you for reviewing my currency converter program. The current functionality includes:
 
-`sqlite3 rates.db < rates.sql`
+## Features
 
-You may also run into errors with SQLite. If you do, run the following code in your terminal
+1. **Menu of options** – Choose what the program does:
+   - **Option 1:** Convert USD to any currency in the database.
+     - All user input is validated with error handling to ensure only correct data is used.
+   - **Option 2:** View the exchange rate of a currency relative to USD.
 
-`dotnet add package Microsoft.Data.Sqlite`
+## Setup Instructions
+
+Before running the program, make sure the rates file is converted from SQL to a `.db` file:
+
+```bash
+sqlite3 rates.db < rates.sql
