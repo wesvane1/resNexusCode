@@ -121,12 +121,9 @@ class Program {
 
     while (true)
     {
-      // The code below is for future implementation. Currently data given from db only converts from USD
-      // Console.WriteLine("What currency would you like to convert from?: ");
-      //* The below line checks to ensure there is a value, if there is not one it is set to null.
-      // currencyFrom = Console.ReadLine()?.ToUpper() ?? string.Empty;
-
-      currencyFrom = "USD";
+      Console.WriteLine("What currency would you like to convert from?: ");
+      // * The below line checks to ensure there is a value, if there is not one it is set to null.
+      currencyFrom = Console.ReadLine()?.ToUpper() ?? string.Empty;
 
       Console.WriteLine("What currency would you like to convert to?: ");
       //* The below line checks to ensure there is a value, if there is not one it is set to null.
@@ -174,7 +171,7 @@ class Program {
       return -99m;
     }
 
-    decimal convertedAmount = Math.Round(amount * toRate.Rate, 2);
+    decimal convertedAmount = Math.Round(amount * (toRate.Rate/fromRate.Rate), 2);
     return convertedAmount;
   }
 

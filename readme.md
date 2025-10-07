@@ -5,7 +5,7 @@ Thank you for reviewing my currency converter program. The current functionality
 ## Features
 
 1. **Menu of options** – Choose what the program does:
-   - **Option 1:** Convert USD to any currency in the database.
+   - **Option 1:** Convert from ANY currency in the database to ANY currency in the database.
      - All user input is validated with error handling to ensure only correct data is used.
    - **Option 2:** View the exchange rate of a currency relative to USD.
 
