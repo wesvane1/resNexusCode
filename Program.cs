@@ -91,10 +91,11 @@ class Program {
         Console.WriteLine("\nDo you want to perform another lookup or conversion? (Y/N)");
         string continueChoice = Console.ReadLine()?.ToUpper() ?? "N";
         continueProgram = (continueChoice == "Y");
-        // The below else statement checks to see if the user selected a vlaue that is within range for the menu.
+        // This else statement runs the unit tests.
         } else if(menuOptionChoice == 3){
           RunManualTests();
           continue;
+        // The below else statement checks to see if the user selected a vlaue that is within range for the menu.
         }else{
           Console.WriteLine("****\nThe option you selected was invalid, please try again.\n****");
         }
@@ -210,3 +211,4 @@ class Program {
     Console.WriteLine(result5 == -99m ? "Pass" : "Fail");
     }
 }
+
