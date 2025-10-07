@@ -14,8 +14,7 @@ class Program {
     // Initialized the Rates array
 
     // Lines 19-31 checks to see if the file, then connection exists. If both are true the program runs. If one or both are false the program immediately stops.
-    try
-    {
+    try {
       if (!File.Exists(dbPath)) throw new Exception("DB file not found.");
       
       using var conn = new SqliteConnection($"Data Source={dbPath}");
@@ -23,8 +22,7 @@ class Program {
 
       Rates = ReadData(conn).ToArray();
     }
-    catch (Exception e)
-    {
+    catch (Exception e) {
       Console.WriteLine("Error: " + e.Message);
       Environment.Exit(1);
       return;
