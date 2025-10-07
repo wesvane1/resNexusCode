@@ -11,7 +11,7 @@ Thank you for reviewing my currency converter program. The current functionality
 
 ## Setup Instructions
 
-Before running the program, make sure the rates file is converted from SQL to a `.db` file:
+Before running the program, make sure the rates file exists and is converted from SQL to a `.db` file:
 
 ```bash
 sqlite3 rates.db < rates.sql
