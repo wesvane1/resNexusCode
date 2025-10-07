@@ -9,7 +9,7 @@ class Program {
   static void Main() {
 
     // The dbPath name should be the same name as the .db file you created.
-    string dbPath = "currencyConversionRates.db";
+    string dbPath = "rates.db";
 
     // Initialized the Rates array
 

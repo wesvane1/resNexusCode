@@ -6,7 +6,7 @@ Thank you for viewing my currency converter program. Current functionality inclu
 
 Prior to running the code, ensure that the rates file has been converted from SQL to a .db file by running the line below in your terminal
 
-`sqlite3 rates.db < currencyConversionRates.sql`
+`sqlite3 rates.db < rates.sql`
 
 You may also run into errors with SQLite. If you do, run the following code in your terminal
 
