@@ -59,26 +59,38 @@ class Program {
             }else {
               Console.WriteLine("An error occured during the calculation, please try again.");
             }
-            Console.WriteLine("\nDo you want to perform another conversion? (Y/N)");
+            Console.WriteLine("\nDo you want to perform another conversion or lookup? (Y/N)");
             string continueChoice = Console.ReadLine()?.ToUpper() ?? "N";
             continueProgram = (continueChoice == "Y");
           } else{
             continueProgram = false;
           }
-        // Lines 60-81 is the code for viewing an exchange rate.
+        // Lines 60-89 is the code for viewing an exchange rate.
         } else if (menuOptionChoice == 2){
           bool validChoice = false;
           while(!validChoice){
-            Console.WriteLine("What currency would you like to view the exchange rate of?: ");
-            string exchangeRateChoice = Console.ReadLine()?.ToUpper() ?? string.Empty;
-            if(exchangeRateChoice == string.Empty || !Rates.Any(r => r.Code.Equals(exchangeRateChoice, StringComparison.OrdinalIgnoreCase))){
-              Console.WriteLine("The currecny you selected does not exist, please try again.\n");
+            Console.WriteLine("From which currency do you want to convert?: ");
+            string exchangeRateChoiceFrom = Console.ReadLine()?.ToUpper() ?? string.Empty;
+            Console.WriteLine($"What would you like to convert {exchangeRateChoiceFrom} to?: ");
+            string exchangeRateChoiceTo = Console.ReadLine()?.ToUpper() ?? string.Empty;
+            if(
+              exchangeRateChoiceFrom == string.Empty || 
+              !Rates.Any(r => r.Code.Equals(exchangeRateChoiceFrom, StringComparison.OrdinalIgnoreCase)) ||
+              exchangeRateChoiceTo == string.Empty ||
+              !Rates.Any(r => r.Code.Equals(exchangeRateChoiceTo, StringComparison.OrdinalIgnoreCase))
+              ){
+              Console.WriteLine("One or both currencies you selected do not exist, please try again.\n");
               continue;
             }
-            var exchangeRateChoiceValue = Rates.FirstOrDefault(r => r.Code == exchangeRateChoice);
-            Console.WriteLine($"The exchange rate from USD to {exchangeRateChoice} is {exchangeRateChoiceValue.Rate}.\n");
+            var exchangeRateChoiceFromValue = Rates.FirstOrDefault(r => r.Code == exchangeRateChoiceFrom);
+            var exchangeRateChoiceToValue = Rates.FirstOrDefault(r => r.Code == exchangeRateChoiceTo);
+            var exchangeRateActualValue = Math.Round((exchangeRateChoiceToValue.Rate/exchangeRateChoiceFromValue.Rate), 2);
+            Console.WriteLine($"\n*****\nThe exchange rate from {exchangeRateChoiceFrom} to {exchangeRateChoiceTo} is {exchangeRateActualValue}.\n*****\n");
             validChoice = true;
           }
+        Console.WriteLine("\nDo you want to perform another lookup or conversion? (Y/N)");
+        string continueChoice = Console.ReadLine()?.ToUpper() ?? "N";
+        continueProgram = (continueChoice == "Y");
         // The below else statement checks to see if the user selected a vlaue that is within range for the menu.
         } else if(menuOptionChoice == 3){
           RunManualTests();
