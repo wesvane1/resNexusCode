@@ -13,7 +13,7 @@ class Program {
 
     // Initialized the Rates array
 
-    // Lines 19-31 checks to see if the file, then connection exists. If both are true the program runs. If one or both are false the program immediately stops.
+    // Lines 17-29 checks to see if the file, then connection exists. If both are true the program runs. If one or both are false the program immediately stops.
     try {
       if (!File.Exists(dbPath)) throw new Exception("DB file not found.");
       
@@ -44,7 +44,7 @@ class Program {
       // The below line is the printed menu
       Console.WriteLine("Please select the operation you want to complete from the following options:\n1) Perform exchange rate calculation from USD\n2) View an exchange rate\n3) Run tests");
       if (int.TryParse(Console.ReadLine(), out int menuOptionChoice)){
-        // Lines 50-58 is the CONVERSION code
+        // Lines 50-55 is the CONVERSION code
         if(menuOptionChoice == 1){
           var userData = getUserData(Rates);
           if(userData != null){
@@ -65,7 +65,7 @@ class Program {
           } else{
             continueProgram = false;
           }
-        // Lines 60-72 is the code for viewing an exchange rate.
+        // Lines 60-81 is the code for viewing an exchange rate.
         } else if (menuOptionChoice == 2){
           bool validChoice = false;
           while(!validChoice){
